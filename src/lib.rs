@@ -25,10 +25,12 @@
 //! handle.join().unwrap();
 //! ```
 
+#![no_std]
 #![warn(missing_docs)]
+#![cfg_attr(all(target_env = "sgx", target_vendor = "mesalock"), feature(rustc_private))]
 
 #[cfg(unix)]
-extern crate libc;
+extern crate sgx_types;
 
 #[cfg(windows)]
 extern crate winapi;
@@ -49,7 +51,7 @@ pub fn get() -> usize {
 #[cfg(unix)]
 #[inline]
 fn get_internal() -> usize {
-    unsafe { libc::pthread_self() as usize }
+    unsafe { sgx_types::sgx_thread_self() as usize }
 }
 
 #[cfg(windows)]
