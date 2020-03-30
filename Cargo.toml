@@ -16,7 +16,7 @@ appveyor = { repository = "ruuda/thread-id", branch = "v3.3.0" }
 #[target.'cfg(unix)'.dependencies]
 #libc = "0.2.6"
 [target.'cfg(not(target_env = "sgx"))'.dependencies]
-sgx_types = { rev = "v1.1.0", git = "https://github.com/apache/teaclave-sgx-sdk.git" }
+sgx_types = { rev = "v1.1.1", git = "https://github.com/apache/teaclave-sgx-sdk.git" }
 
 [target.'cfg(windows)'.dependencies]
 #winapi = { version = "0.3", features = ["processthreadsapi"] }
